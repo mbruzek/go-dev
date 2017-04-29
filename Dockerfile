@@ -7,7 +7,7 @@ ARG GO_ARCH=amd64
 # OS values can be: https://golang.org/doc/install/source#environment
 ARG GO_OS=linux
 # The version of golang you would like to install.
-ARG GO_VERSION=1.8.1
+ARG GO_VERSION=1.6.1
 
 # Build the filename from the version, OS, and architecture.
 ENV GO_FILENAME="go${GO_VERSION}.${GO_OS}-${GO_ARCH}.tar.gz"
