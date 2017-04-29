@@ -1,4 +1,4 @@
-# Go development environment
+# Go Development Container
 
 Go (golang) is a programming language. This container that provides a go
 development environment.
