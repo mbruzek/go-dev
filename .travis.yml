@@ -1,0 +1,17 @@
+language: bash
+services: docker
+
+env:
+  - VERISON 1.8.1
+  - VERSION 1.7.1
+  - VERSION 1.6.1
+
+script:
+  - travis_retry docker build -t "go-dev:$VERSION"
+  - docker inspect "go-dev:$VERSION"
+  - docker run --rm "go-dev:$VERSION" go version
+  - docker run --rm "go-dev:$VERSION" echo $GOPATH
+  - docker run --rm "go-dev:$VERSION" echo $GOROOT
+
+after_script:
+  - docker images
