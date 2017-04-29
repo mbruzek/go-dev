@@ -7,11 +7,11 @@ env:
   - VERSION=1.6.1
 
 script:
-  - travis_retry docker build . -t "go-dev:$VERSION" --build-arg GO_VERSION=$VERSION
-  - docker inspect "go-dev:$VERSION"
-  - docker run --rm "go-dev:$VERSION" go version
-  - docker run --rm "go-dev:$VERSION" echo $GOPATH
-  - docker run --rm "go-dev:$VERSION" echo $GOROOT
+  - travis_retry docker build . -t go-dev:$VERSION --build-arg GO_VERSION=$VERSION
+  - docker inspect go-dev:$VERSION
+  - docker run go-dev:$VERSION go version
+  - docker run go-dev:$VERSION env
 
 after_script:
-  - docker images
+  - docker ps -a
+  - docker images -a
