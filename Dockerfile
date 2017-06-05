@@ -28,7 +28,7 @@ RUN apt-get install -y --no-install-recommends \
     wget
 
 # Download the golang binary, rename it to something simple.
-RUN set -eux; url="$GO_BINARY_URL"; wget -nv -O go.tgz $url
+RUN set -eux; url="$GO_BINARY_URL"; wget -nv -t 3 -O go.tgz $url
 # Download the sha256sum and check it against the renamed file.
 RUN set -eux; echo "`curl -sS $GO_SHA256_URL` go.tgz" | sha256sum -c -
 # Extract the archive to the /usr/local directory.
